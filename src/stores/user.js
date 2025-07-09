@@ -9,4 +9,8 @@ export const useUserStore=defineStore('user',()=>{
         userInfo.value=res.result
     }
     return{userInfo,getUserInfo}
-})
+},
+{
+    persist:true
+}
+)

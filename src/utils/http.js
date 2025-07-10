@@ -2,12 +2,14 @@
 import axios from "axios";
 import { useUserStore } from '@/stores/user'
 import router from '@/router'
+import {ElMessage} from 'element-plus'
 
 //创建axios实例
 const httpInstance = axios.create({
-    baseURL:'http://pcapi-xiaotuxian-front-devtest.itheima.net',
+    baseURL:'https://pcapi-xiaotuxian-front-devtest.itheima.net/',
     timeout:5000,
 })
+
 //axios请求拦截器
 httpInstance.interceptors.request.use(config => {
   //1. 从pinia中获取token数据
@@ -22,11 +24,11 @@ httpInstance.interceptors.request.use(config => {
 
 // axios响应式拦截器
 httpInstance.interceptors.response.use(res => res.data, e => {
-  const userStore=useUserStore()
   //统一错误提示
+  const userStore=useUserStore()
   ElMessage({
     type:'warning',
-    message:e.response.data.msg
+    message:e.response.data.message,
   })
   //401错误，token失效处理
   if(e.response.status===401){

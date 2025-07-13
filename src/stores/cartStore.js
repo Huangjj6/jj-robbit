@@ -13,8 +13,13 @@ export const useCartStore = defineStore('cart',()=>{
           cartList.value.push(goods)
         }
     }
-
-    return{cartList,addCart}
+    const delCart=(skuId)=>{
+      const idx=cartList.value.findIndex((item)=>item.skuId===skuId)
+      if(idx>-1){
+        cartList.value.splice(idx,1)
+      }
+    }
+    return{cartList,addCart,delCart}
 },
 {
   persist: true,

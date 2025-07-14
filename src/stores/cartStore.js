@@ -15,10 +15,8 @@ export const useCartStore = defineStore('cart',()=>{
         }
     }
     const delCart=(skuId)=>{
-      const idx=cartList.value.findIndex((item)=>item.skuId===skuId)
-      if(idx>-1){
+      const idx=cartList.value.findIndex((item)=>skuId===item.skuId)
         cartList.value.splice(idx,1)
-      }
     }
     const singleCheck=(skuId,selected)=>{
       const item=cartList.value.find((item)=>item.skuId===skuId)

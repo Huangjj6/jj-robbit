@@ -1,10 +1,20 @@
 import { defineStore } from 'pinia'
 import { ref,computed } from 'vue'
+import {useUserStore} from './user'
+import {insertCartAPI,findNewCartListAPI} from '@/apis/cart'
 
 
 export const useCartStore = defineStore('cart',()=>{
+    const userStore=useUserStore()
+    const isLogin=computed(()=>userStore.userInfo.token)
     const cartList=ref([])
-    const addCart=(goods)=>{
+    const addCart=async (goods)=>{
+      const {skuId,count}=goods
+      if(isLogin.value) { 
+        await insertCartAPI({skuId,count})
+        const res = await findNewCartListAPI()
+        cartList.value=res.result
+      }else{
         //已添加过count+1
         let item=cartList.value.find((item)=>item.id===goods.id)
         if(item){
@@ -13,6 +23,8 @@ export const useCartStore = defineStore('cart',()=>{
           //未添加过直接添加
           cartList.value.push(goods)
         }
+      }
+        
     }
     const delCart=(skuId)=>{
       const idx=cartList.value.findIndex((item)=>skuId===item.skuId)

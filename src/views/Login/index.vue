@@ -35,6 +35,7 @@ const rules={
 }
 const formRef=ref(null)
 const router = useRouter()
+//账号：heima282 密码：hm#qd@23!
 const doLogin = ()=>{
   const {account,password} = form.value
   //同意校验

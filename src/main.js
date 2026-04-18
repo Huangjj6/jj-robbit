@@ -9,6 +9,7 @@ import { componentPlugin } from './components'
 
 const pinia=createPinia()
 pinia.use(piniaPluginPersistedstate)
+// 创建vue实例
 const app = createApp(App)
 app.use(pinia)
 app.use(router)

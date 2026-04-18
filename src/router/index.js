@@ -12,6 +12,7 @@ import PayBack from '@/views/Pay/PayBack.vue'
 
 
 const router = createRouter({
+  // 路由模式
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -58,6 +59,7 @@ const router = createRouter({
     }
 
   ],
+  // 滚动行为
   scrollBehavior(){
     return {
       top:0

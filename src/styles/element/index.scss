@@ -1,25 +1,27 @@
+@use '../var.scss' as *;
+
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
       // 主色
-      'base': #27ba9b,
+      'base': $xtxColor,
       // 'base':red
     ),
     'success': (
       // 成功色
-      'base': #1dc779,
+      'base': $sucColor,
     ),
     'warning': (
       // 警告色
-      'base': #ffb302,
+      'base': $warnColor,
     ),
     'danger': (
       // 危险色
-      'base': #e26237,
+      'base': $helpColor,
     ),
     'error': (
       // 错误色
-      'base': #cf4444,
+      'base': $priceColor,
     ),
   )
 )

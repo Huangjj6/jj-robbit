@@ -8,7 +8,7 @@ const categoryStore = useCategoryStore();
   <header class='app-header'>
     <div class="container">
       <h1 class="logo">
-        <RouterLink to="/">小兔鲜</RouterLink>
+        <RouterLink to="/">鲜选优品</RouterLink>
       </h1>
       <ul class="app-header-nav">
         <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
@@ -43,7 +43,7 @@ const categoryStore = useCategoryStore();
       height: 132px;
       width: 100%;
       text-indent: -9999px;
-      background: url('@/assets/images/logo.png') no-repeat center 18px / contain;
+      background: url('@/assets/images/logo2.png') no-repeat center 18px / contain;
     }
   }
 
